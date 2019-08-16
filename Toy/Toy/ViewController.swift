@@ -68,8 +68,7 @@ class ViewController: UIViewController {
         }
         
         if (Cat.count == 0){
-            Cat.addCat(catName: "Alice", catImage: #imageLiteral(resourceName: "jpg4"), catAge: 1, catType: "British Shorthair")
-            Cat.addCat(catName: "Bob", catImage: #imageLiteral(resourceName: "jpg2"), catAge: 2, catType: "American Shorthair")
+            Cat.loadCats()
         }
     }
 
