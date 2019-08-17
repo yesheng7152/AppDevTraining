@@ -114,7 +114,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Cat Log" id="xWF-cO-7bG"/>
+                    <navigationItem key="navigationItem" title="Cat Log" id="xWF-cO-7bG">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="TrY-V1-hNl">
+                            <connections>
+                                <segue destination="ZlS-sm-EeC" kind="presentation" id="TE0-IG-9YQ"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="ClassYearTextField" destination="ih4-g9-OHy" id="oET-Xq-Hze"/>
                         <outlet property="Classtext" destination="QrH-k1-7Db" id="NW9-cm-0Ic"/>
@@ -268,6 +274,91 @@
             </objects>
             <point key="canvasLocation" x="2653.5999999999999" y="139.880059970015"/>
         </scene>
+        <!--Add Cats-->
+        <scene sceneID="18a-Uz-aef">
+            <objects>
+                <viewController id="P9G-3f-MhG" customClass="AddCatViewController" customModule="Toy" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="h43-Oy-hNc">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="VdP-7K-3aG">
+                                <rect key="frame" x="67" y="160" width="240" height="309"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="309" id="hfO-M0-kLO"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="AddCatCell" rowHeight="195" id="YjW-go-T7S" customClass="AddCatTableViewCell" customModule="Toy" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="240" height="195"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="YjW-go-T7S" id="SJ9-R9-bvA">
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="194.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Vd2-E7-ux9">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="155"/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
+                                                <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jeu-Au-ADe">
+                                                    <rect key="frame" x="0.0" y="0.0" width="240" height="195"/>
+                                                </pickerView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="Vd2-E7-ux9" secondAttribute="trailing" id="7aA-hq-i1o"/>
+                                                <constraint firstAttribute="bottom" secondItem="jeu-Au-ADe" secondAttribute="bottom" id="9QJ-45-Qox"/>
+                                                <constraint firstAttribute="trailing" secondItem="Vd2-E7-ux9" secondAttribute="trailing" id="Grf-Ye-TEo"/>
+                                                <constraint firstItem="jeu-Au-ADe" firstAttribute="leading" secondItem="SJ9-R9-bvA" secondAttribute="leading" id="HbJ-tt-gf4"/>
+                                                <constraint firstItem="Vd2-E7-ux9" firstAttribute="leading" secondItem="SJ9-R9-bvA" secondAttribute="leading" id="Hhz-Ms-8I9"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vd2-E7-ux9" secondAttribute="bottom" id="OfZ-9g-tJ7"/>
+                                                <constraint firstItem="Vd2-E7-ux9" firstAttribute="top" secondItem="SJ9-R9-bvA" secondAttribute="top" id="Wmg-Af-gtV"/>
+                                                <constraint firstItem="Vd2-E7-ux9" firstAttribute="top" secondItem="SJ9-R9-bvA" secondAttribute="top" id="cUp-a5-Zoo"/>
+                                                <constraint firstAttribute="bottom" secondItem="Vd2-E7-ux9" secondAttribute="bottom" id="jUP-Xd-sRE"/>
+                                                <constraint firstAttribute="trailing" secondItem="jeu-Au-ADe" secondAttribute="trailing" id="l6Z-c4-cDB"/>
+                                                <constraint firstItem="jeu-Au-ADe" firstAttribute="top" secondItem="SJ9-R9-bvA" secondAttribute="top" id="wXr-1V-qOI"/>
+                                                <constraint firstItem="Vd2-E7-ux9" firstAttribute="leading" secondItem="SJ9-R9-bvA" secondAttribute="leading" id="ylf-ez-duf"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="PickerView" destination="jeu-Au-ADe" id="xgl-0g-gkZ"/>
+                                            <outlet property="TextView" destination="Vd2-E7-ux9" id="jHh-ll-3Dy"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VdP-7K-3aG" firstAttribute="leading" secondItem="g4W-vO-sY7" secondAttribute="leading" constant="67" id="4h4-eP-Z5y"/>
+                            <constraint firstItem="VdP-7K-3aG" firstAttribute="top" secondItem="g4W-vO-sY7" secondAttribute="top" constant="96" id="fQS-8u-H64"/>
+                            <constraint firstItem="g4W-vO-sY7" firstAttribute="trailing" secondItem="VdP-7K-3aG" secondAttribute="trailing" constant="68" id="j61-Qz-44q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="g4W-vO-sY7"/>
+                    </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Add Cats" id="8dV-2S-Dod">
+                        <barButtonItem key="leftBarButtonItem" title="Clear" id="Dp0-aX-fUL">
+                            <connections>
+                                <action selector="ClearButtonTapped:" destination="P9G-3f-MhG" id="p65-IX-bEH"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Done" id="PfU-i3-jru">
+                            <connections>
+                                <action selector="DoneButtonTapped:" destination="P9G-3f-MhG" id="aUs-3T-FaV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="TableView" destination="VdP-7K-3aG" id="1JO-vZ-L4B"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uZU-6c-J9K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1840.8" y="934.18290854572717"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="4gY-BV-z01">
             <objects>
@@ -285,6 +376,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6tv-3c-1VS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="TeA-fe-rEP">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ZlS-sm-EeC" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LmW-bP-x2v">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="P9G-3f-MhG" kind="relationship" relationship="rootViewController" id="sVz-ho-HTs"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vlw-0Z-aK7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1076" y="935"/>
         </scene>
     </scenes>
 </document>

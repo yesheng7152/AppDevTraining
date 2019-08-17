@@ -68,7 +68,14 @@ class ViewController: UIViewController {
         }
         
         if (Cat.count == 0){
-            Cat.loadCats()
+            Cat.loadCats { (result) in
+                for dict in result {
+                    let imageURL = URL(string: dict["image"]!)
+                    let image = UIImage(data: try! Data(contentsOf: imageURL!))
+                    Cat.addCat(catName: dict["name"]!, catImage: image!, catAge: Int(dict["age"]!)!, catType: dict["type"]!)
+                    
+                }
+            }
         }
     }
 
