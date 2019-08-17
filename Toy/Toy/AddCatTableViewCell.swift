@@ -11,11 +11,14 @@ var age : Int = -1
 var name : String = ""
 var type : String = ""
 class AddCatTableViewCell: UITableViewCell, UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate {
+    var addCatViewController : AddCatViewController? 
     
     @IBOutlet weak var TextView: UITextView!
     
     @IBOutlet weak var PickerView: UIPickerView!
-    
+    func canSubmit() -> Bool {
+        return age != -1 && name != "" && type != ""
+    }
     override func awakeFromNib() {
         super.awakeFromNib()
         PickerView.delegate = self
@@ -48,6 +51,9 @@ class AddCatTableViewCell: UITableViewCell, UIPickerViewDelegate,UIPickerViewDat
         age = row
         // reload the second section in table view
         addCatViewController?.TableView.reloadRows(at: [IndexPath(row: 0, section: 1)], with: .automatic)
+        if (canSubmit()){
+            addCatViewController?.DoneButton.isEnabled = true
+        }
     }
     
     //MARK: - Text View Methods
@@ -65,6 +71,11 @@ class AddCatTableViewCell: UITableViewCell, UIPickerViewDelegate,UIPickerViewDat
         }else {
             type = textView.text
         }
+        if (canSubmit()){
+            addCatViewController?.DoneButton.isEnabled = true
+        }else {
+            addCatViewController?.DoneButton.isEnabled = false
+    }
     }
     
     

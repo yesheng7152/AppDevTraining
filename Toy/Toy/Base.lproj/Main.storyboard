@@ -352,6 +352,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="DoneButton" destination="PfU-i3-jru" id="MML-hx-Bb2"/>
                         <outlet property="TableView" destination="VdP-7K-3aG" id="1JO-vZ-L4B"/>
                     </connections>
                 </viewController>

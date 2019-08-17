@@ -1,12 +1,13 @@
 import UIKit
 
-var addCatViewController : AddCatViewController? = nil
 
 class AddCatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
     var isPickerViewOpened : Bool = false
 
     @IBOutlet weak var TableView: UITableView!
+    
+    @IBOutlet weak var DoneButton: UIBarButtonItem!
     
     @IBAction func DoneButtonTapped(_ sender: Any) {
         Cat.addCat(catName: name, catImage:#imageLiteral(resourceName: "jpg1"), catAge: age, catType: type)
@@ -28,7 +29,7 @@ class AddCatViewController: UIViewController, UITableViewDelegate,UITableViewDat
 
         TableView.delegate = self
         TableView.dataSource = self
-        addCatViewController = self
+        DoneButton.isEnabled = false 
         // Do any additional setup after loading the view.
     }
 
@@ -88,7 +89,7 @@ class AddCatViewController: UIViewController, UITableViewDelegate,UITableViewDat
                 cell.PickerView.isHidden = false
             }
         }
-        
+        cell.addCatViewController = self
         return cell
     }
     
