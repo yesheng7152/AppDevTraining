@@ -26,10 +26,9 @@ class AddCatViewController: UIViewController, UITableViewDelegate,UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         TableView.delegate = self
         TableView.dataSource = self
-        DoneButton.isEnabled = false 
+        DoneButton.isEnabled = false
         // Do any additional setup after loading the view.
     }
 
@@ -87,6 +86,9 @@ class AddCatViewController: UIViewController, UITableViewDelegate,UITableViewDat
             }else {
                 cell.TextView.isHidden = true
                 cell.PickerView.isHidden = false
+                if (age != -1){
+                    cell.PickerView.selectRow(age, inComponent:0, animated:false)
+                }
             }
         }
         cell.addCatViewController = self

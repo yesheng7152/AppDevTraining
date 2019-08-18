@@ -10,8 +10,9 @@ import UIKit
 var age : Int = -1
 var name : String = ""
 var type : String = ""
+
 class AddCatTableViewCell: UITableViewCell, UIPickerViewDelegate,UIPickerViewDataSource,UITextViewDelegate {
-    var addCatViewController : AddCatViewController? 
+    var addCatViewController : AddCatViewController?
     
     @IBOutlet weak var TextView: UITextView!
     
@@ -75,11 +76,8 @@ class AddCatTableViewCell: UITableViewCell, UIPickerViewDelegate,UIPickerViewDat
             addCatViewController?.DoneButton.isEnabled = true
         }else {
             addCatViewController?.DoneButton.isEnabled = false
+        }
     }
-    }
-    
-    
-    
     
     func textViewDidEndEditing(_ textView: UITextView) {
         if (textView.text == ""){
